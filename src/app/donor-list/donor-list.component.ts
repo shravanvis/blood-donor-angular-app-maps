@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import * as firebase from 'firebase';
+import { Router } from '@angular/router';
 
 declare var google: any;
 let map: any;
@@ -35,7 +36,7 @@ export class DonorListComponent implements OnInit {
 
   @ViewChild('map', {static: false}) mapElement: ElementRef;
 
-  donors = [];
+  farmers = [];
   createMarkers(place: any) {
     const latitude = parseFloat(place.coords.latitude);
     const longitude = parseFloat(place.coords.longitude);
@@ -46,16 +47,16 @@ export class DonorListComponent implements OnInit {
     });
   
     google.maps.event.addListener(donorMarker, 'click', function() {
-      infowindow.setContent('<h3>' + place.name + '</h3><p>Blood Group: ' + place.blood_group + '<br>Phone number: ' + place.phone + '<br>Email: ' + place.email + '</p>');
+      infowindow.setContent('<h3>' + place.name + '</h3><p>crop: ' + place.crop + '<br>Phone number: ' + place.phone + '<br>Email: ' + place.email + '<br>Quantity: ' + place.quantity + '<br>rupees: ' + place.expected_rupees + '<br>Address: ' + place.address + '</p>');
       infowindow.open(map, this);
     });
   }
 
-  constructor() {
-    firebase.database().ref('donors/').on('value', resp => {
-      this.donors = [];
-      this.donors = snapshotToArray(resp);
-      for (const donor of this.donors) {
+  constructor(public route: Router) {
+    firebase.database().ref('farmers/').on('value', resp => {
+      this.farmers = [];
+      this.farmers = snapshotToArray(resp);
+      for (const donor of this.farmers) {
         this.createMarkers(donor);
       }
     });
@@ -89,8 +90,9 @@ export class DonorListComponent implements OnInit {
       });
   
       marker.addListener('click', (event: any) => {
-        infowindow.setPosition(event.latLng);
-        infowindow.setContent('<h2>Yes, I wanna be a donor!</h2>' +
+        // infowindow.setPosition(event.latLng);
+        this.route.navigate(['/add-donor'])
+        infowindow.setContent('<h2>Farmer Location!</h2>' +
         '<h3><a href="/add-donor/' + marker.getPosition().lat() + '/' + marker.getPosition().lng()  + '">Register Here</a></h3>');
         infowindow.open(map, marker);
       });

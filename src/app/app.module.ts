@@ -20,12 +20,16 @@ import {
   MatButtonModule,
   MatCardModule,
   MatFormFieldModule } from '@angular/material';
+import { StartComponent } from './start/start.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
     AppComponent,
     DonorListComponent,
-    AddDonorComponent
+    AddDonorComponent,
+    StartComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +46,7 @@ import {
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent]

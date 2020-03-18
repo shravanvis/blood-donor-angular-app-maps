@@ -1,39 +1,70 @@
 <div   [ngStyle]="{'background' : 'url(.././assets/bg1.png)'}" style="width: 100%; height: 100%">
-    <h1 style="text-align: center; color: red"><strong>Add-Donor</strong></h1>
     <div class="container" style="text-align: center ">
-            <form class="example-form" [formGroup]="donorForm" (ngSubmit)="onFormSubmit(donorForm.value)">
-                <h2>Input your data then save it.</h2>
-                <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Your name" formControlName="name" [errorStateMatcher]="matcher">
-                    <mat-error>
-                    <span *ngIf="!donorForm.get('name').valid && donorForm.get('name').touched">Please enter your name</span>
-                    </mat-error>
-                </mat-form-field>
-                <br />
-                <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Your Phone" formControlName="phone" [errorStateMatcher]="matcher">
-                    <mat-error>
-                    <span *ngIf="!donorForm.get('phone').valid && donorForm.get('phone').touched">Please enter your phone</span>
-                    </mat-error>
-                </mat-form-field>
-                <br />
-                <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Your email" formControlName="email" [errorStateMatcher]="matcher">
-                    <mat-error>
-                    <span *ngIf="!donorForm.get('email').valid && donorForm.get('email').touched">Please enter your email</span>
-                    </mat-error>
-                </mat-form-field>
-                <br />
-                <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Your Blood Group" formControlName="blood_group" [errorStateMatcher]="matcher">
-                    <mat-error>
-                    <span *ngIf="!donorForm.get('blood_group').valid && donorForm.get('blood_group').touched">Please enter your Blood Group</span>
-                    </mat-error>
-                </mat-form-field>
-                <br />
-                <div class="button-row">
-                    <button type="submit" [disabled]="!donorForm.valid" mat-fab color="primary"><mat-icon>save</mat-icon></button>
-                </div>
-            </form>
+        <div class="card" style="width: 500px; float: right;">
+            <div class="card-body">
+                <h1 style="text-align: center; color: red"><strong>Farmer Location</strong></h1>
+                <form class="example-form" [formGroup]="donorForm" (ngSubmit)="onFormSubmit(donorForm.value)">
+                    <h2>Input your data then save it.</h2>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Your name" formControlName="name">
+                        <mat-error>
+                        <span *ngIf="!donorForm.get('name').valid && donorForm.get('name').touched">Please enter your name</span>
+                        </mat-error>
+                    </mat-form-field>
+                    <br />
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Your Phone" formControlName="phone" >
+                        <mat-error>
+                        <span *ngIf="!donorForm.get('phone').valid && donorForm.get('phone').touched">Please enter your phone</span>
+                        </mat-error>
+                    </mat-form-field>
+                    <br />
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Your email" formControlName="email">
+                        <mat-error>
+                        <span *ngIf="!donorForm.get('email').valid && donorForm.get('email').touched">Please enter your email</span>
+                        </mat-error>
+                    </mat-form-field>
+                    <br />
+                    <!-- <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Your Blood Group" formControlName="blood_group" [errorStateMatcher]="matcher">
+                        <mat-error>
+                        <span *ngIf="!donorForm.get('blood_group').valid && donorForm.get('blood_group').touched">Please enter your Blood Group</span>
+                        </mat-error>
+                    </mat-form-field> -->
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Crop type" formControlName="crop" >
+                        <mat-error>
+                        <span *ngIf="!donorForm.get('crop').valid && donorForm.get('crop').touched">Please enter your Crop type</span>
+                        </mat-error>
+                    </mat-form-field>
+                    <br />
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Quantity of your crops" formControlName="quantity" >
+                        <mat-error>
+                        <span *ngIf="!donorForm.get('quantity').valid && donorForm.get('quantity').touched">Please enter your quantity</span>
+                        </mat-error>
+                    </mat-form-field>
+                    <br />
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="expected rupees of your crops" formControlName="expected_rupees" >
+                        <mat-error>
+                        <span *ngIf="!donorForm.get('expected_rupees').valid && donorForm.get('expected_rupees').touched">Please enter your expected rupees</span>
+                        </mat-error>
+                    </mat-form-field>
+                    <br />
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Address" formControlName="address" >
+                        <mat-error>
+                        <span *ngIf="!donorForm.get('address').valid && donorForm.get('address').touched">Please enter your Address</span>
+                        </mat-error>
+                    </mat-form-field>
+                    <br />
+                    <div class="button-row">
+                        <button type="submit" [disabled]="!donorForm.valid" mat-fab color="primary"><mat-icon>save</mat-icon></button>
+                    </div>
+                </form>
+            </div>
+        </div>    
     </div>
     </div>

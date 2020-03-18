@@ -23,7 +23,11 @@ export class AddDonorComponent implements OnInit {
   name: string='';
   phone: string='';
   email: string='';
-  blood_group: string='';
+  // blood_group: string='';
+  crop: string;
+  quantity: string;
+  expected_rupees: number;
+  address: string;
   lat = '';
   lng = '';
   ref = firebase.database().ref('donors/');
@@ -38,14 +42,18 @@ export class AddDonorComponent implements OnInit {
       'name' : [null, Validators.required],
       'phone' : [null, Validators.required],
       'email' : [null, Validators.required],
-      'blood_group': [null, Validators.required]
+      // 'blood_group': [null, Validators.required]
+      'crop' : [null, Validators.required],
+      'quantity' : [null, Validators.required],
+      'expected_rupees' : [null, Validators.required],
+      'address' : [null, Validators.required],
     });
   }
 
   onFormSubmit(form: any) {
     const donor = form;
     donor.coords = { latitude: this.lat, longitude: this.lng };
-    const newDonor = firebase.database().ref('donors/').push();
+    const newDonor = firebase.database().ref('farmers/').push();
     newDonor.set(donor);
     this.router.navigate(['/']);
   }
