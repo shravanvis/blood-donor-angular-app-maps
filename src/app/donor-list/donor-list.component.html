@@ -1,9 +1,43 @@
-<mat-card style="color: sandybrown">
-    <mat-card-title style="text-align: center">Kisan < Dev > App </mat-card-title>
-
-
-
-
-    <!-- <mat-card-subtitle>shravan kumar vishwakarma</mat-card-subtitle> -->
-</mat-card>
-<div style="width: 100%; height: 100%" #map id="map"></div>
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav [mode]="mode.value" style="width: 150px;">
+      <!-- <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p> -->
+      <p>
+        <mat-list role="list">
+          <br>
+            <mat-list-item role="listitem">
+              <img src="../../assets/famers_profile.png" alt="" style="width: 80px;">
+            </mat-list-item>
+            <br>
+            <hr>
+            <mat-list-item role="listitem">Home</mat-list-item>
+            <hr>
+            <mat-list-item role="listitem">About Us</mat-list-item>
+            <hr>
+            <mat-list-item role="listitem">Contact Us</mat-list-item>
+          </mat-list>
+      </p>
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+      <mat-card style="color: sandybrown">
+        <mat-card-title style="text-align: center; color: green;">
+            
+            <button mat-button (click)="sidenav.toggle()" style="float: left;">
+            <img src="../../assets/list.png" alt="" width="15px">
+            </button>
+            
+            <img src="../../assets/farmer1.png" width="50px" alt="">
+             <!-- Kisan < Dev > App -->
+             Farmer's App
+        </mat-card-title>
+    
+    
+    
+    
+        <!-- <mat-card-subtitle>shravan kumar vishwakarma</mat-card-subtitle> -->
+    </mat-card>
+    <div style="width: 100%; height: 100%" #map id="map"></div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
+  <!-- <div *ngIf="shouldRun">Please open on Stackblitz to see result</div> -->

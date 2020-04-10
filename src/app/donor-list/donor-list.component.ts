@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import * as firebase from 'firebase';
 import { Router } from '@angular/router';
+import {FormControl} from '@angular/forms';
 
 declare var google: any;
 let map: any;
@@ -33,6 +34,11 @@ export const snapshotToArray = (snapshot: any) => {
   styleUrls: ['./donor-list.component.scss']
 })
 export class DonorListComponent implements OnInit {
+
+  // for toggle menu sidebar
+  mode = new FormControl('over');
+  shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
+
 
   @ViewChild('map', {static: false}) mapElement: ElementRef;
 

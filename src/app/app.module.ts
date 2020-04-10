@@ -19,6 +19,8 @@ import {
   MatIconModule,
   MatButtonModule,
   MatCardModule,
+  MatSidenavModule,
+  MatListModule,
   MatFormFieldModule } from '@angular/material';
 import { StartComponent } from './start/start.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -45,6 +47,8 @@ import { environment } from '../environments/environment';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
+    MatSidenavModule,
+    MatListModule,
     MatFormFieldModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
